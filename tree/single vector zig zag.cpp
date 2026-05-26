@@ -1,62 +1,69 @@
-/*gfg
-class Solution {
-public:
+/*class Solution {
+  public:
 
     vector<int> zigZagTraversal(Node* root) {
 
-        vector<int> ans;
+        deque<Node*> dq;
+
+        vector<int> a;
 
         if(root == NULL){
 
-            return ans;
+            return a;
         }
 
-        queue<Node*> q;
+        bool flag = true;
 
-        q.push(root);
+        dq.push_back(root);
 
-        bool leftToRight = true;
+        while(!dq.empty()){
 
-        while(!q.empty()){
-
-            int s = q.size();
-
-            deque<int> dq;
+            int s = dq.size();
 
             for(int i=0; i<s; i++){
 
-                Node* curr = q.front();
+                if(flag){
 
-                q.pop();
+                    Node* curr = dq.front();
 
-                if(leftToRight){
+                    dq.pop_front();
 
-                    dq.push_back(curr->data);
+                    a.push_back(curr->data);
+
+                    if(curr->left){
+
+                        dq.push_back(curr->left);
+                    }
+
+                    if(curr->right){
+
+                        dq.push_back(curr->right);
+                    }
                 }
+
                 else{
 
-                    dq.push_front(curr->data);
-                }
+                    Node* curr = dq.back();
 
-                if(curr->left){
+                    dq.pop_back();
 
-                    q.push(curr->left);
-                }
+                    a.push_back(curr->data);
 
-                if(curr->right){
+                    if(curr->right){
 
-                    q.push(curr->right);
+                        dq.push_front(curr->right);
+                    }
+
+                    if(curr->left){
+
+                        dq.push_front(curr->left);
+                    }
                 }
             }
 
-            for(auto x : dq){
-
-                ans.push_back(x);
-            }
-
-            leftToRight = !leftToRight;
+            flag = !flag;
         }
 
-        return ans;
+        return a;
     }
 };*/
