@@ -20,4 +20,24 @@ public:
         }
         return ans;
     }
+⚡ Key Ideas
+Two-pointer technique:
+
+Start with one pointer at the beginning (i) and one at the end (j).
+
+If sum is too small → move i forward.
+
+If sum is too large → move j backward.
+
+If sum matches target → return indices.
+
+Why it works:
+
+Array is sorted, so moving pointers guarantees progress toward the target.
+
+Time complexity: 
+𝑂(𝑛)
+Space complexity: 
+𝑂(1)
+.
 };*/
