@@ -12,4 +12,14 @@ class Solution {
         }
     }
     }
+    Key Ideas
+Two-pointer technique:
+
+j scans the array.
+
+i marks the boundary of the "non-zero zone".
+
+Every non-zero gets placed at the earliest available slot.
+
+Zeros are left behind and eventually end up at the back.
 };*/
