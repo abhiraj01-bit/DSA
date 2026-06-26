@@ -1,13 +1,10 @@
-/*leetcode 
-class Solution {
+/*class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
         unordered_map<int,int>mp;
-        vector<int>ans;
-        stack<int>s;
         int n=nums2.size();
+        stack<int>s;
         for(int i=n-1;i>=0;i--){
-            
             while(!s.empty()&&s.top()<=nums2[i]){
                 s.pop();
             }
@@ -19,14 +16,12 @@ public:
             }
             s.push(nums2[i]);
         }
+        vector<int>arr;
         for(int i=0;i<nums1.size();i++){
             if(mp.find(nums1[i])!=mp.end()){
-                ans.push_back(mp[nums1[i]]);
-            }
-            else{
-                ans.push_back(-1);
+                arr.push_back(mp[nums1[i]]);
             }
         }
-        return ans;
+        return arr;
     }
 };*/

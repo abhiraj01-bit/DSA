@@ -1,4 +1,4 @@
-class Solution {
+/*class Solution {
 public:
 int solve(string &s,string &s2,int i,int j,vector<vector<int>>&dp){
     if(i>=s.size()){
@@ -23,4 +23,4 @@ int solve(string &s,string &s2,int i,int j,vector<vector<int>>&dp){
         vector<vector<int>>dp(n+1,vector<int>(n+1,-1));
         return solve(s,s2,0,0,dp);
     }
-};
+};*/
