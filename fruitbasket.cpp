@@ -1,21 +1,21 @@
-/*leetcode 
-class Solution {
-public:
-    int totalFruit(vector<int>& fruits) {
-        unordered_map<int,int> mp;
-        int maxsum = 0;
-        int i = 0;
-        for(int j=0;j<fruits.size();j++){
-            mp[fruits[j]]++;
-            while(mp.size() > 2){
-                mp[fruits[i]]--;
-                if(mp[fruits[i]] == 0){
-                    mp.erase(fruits[i]);
-                }
-                i++;
-            }
-            maxsum = max(maxsum, j-i+1);
-        }
-        return maxsum;
+/*class Solution {
+  public:
+    int totalElements(vector<int> &arr) {
+        // code here
+     unordered_map<int,int>mp;
+     int i=0;
+     int count=0;
+     for(int j=0;j<arr.size();j++){
+         mp[arr[j]]++;
+         if(mp.size()>2){
+             mp[arr[i]]--;
+             if(mp[arr[i]]==0){
+                 mp.erase(arr[i]);
+             }
+             i++;
+         }
+         count=max(count,j-i+1);
+     }
+     return count;
     }
 };*/
