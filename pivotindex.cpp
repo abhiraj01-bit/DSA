@@ -1,23 +1,19 @@
-/*leetcode
-class Solution {
+/*class Solution {
 public:
     int pivotIndex(vector<int>& nums) {
-        unordered_map<int,int>mp;
-        int sum=0;
-        int ans;
+        int tsum=0;
+        int ans=-1;
         for(int i=0;i<nums.size();i++){
-            sum+=nums[i];
-            mp[i]=sum;
+            tsum+=nums[i];
         }
-        int len=mp.size();
-        for(int i=0;i<len;i++){
-           if(mp[i-1]==mp[len-1]-mp[i]){
-            ans=i;
-            break;
-           }
-           else {
-             ans=-1;
-           }
+        int leftsum=0;
+        for(int i=0;i<nums.size();i++){
+            int rightsum=tsum-leftsum-nums[i];
+            if(leftsum==rightsum){
+                ans=i;
+                break;
+            }
+            leftsum+=nums[i];
         }
         return ans;
     }
