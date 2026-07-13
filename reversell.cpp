@@ -1,5 +1,4 @@
-/*leetcode
-/**
+/*/**
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
@@ -12,14 +11,14 @@
 /*class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        ListNode*curr=head;
-        ListNode*prev=NULL;
-        ListNode*next=NULL;
+        ListNode* prev=NULL;
+        ListNode* curr=head;
+        ListNode* N=NULL;
         while(curr!=NULL){
-            next=curr->next;
+            N=curr->next;
             curr->next=prev;
             prev=curr;
-            curr=next;
+            curr=N;
         }
         return prev;
     }
