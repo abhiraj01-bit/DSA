@@ -1,5 +1,4 @@
-/*leetcode 
-class Solution {
+/*class Solution {
 public:
     int majorityElement(vector<int>& nums) {
         unordered_map<int,int>mp;
@@ -7,11 +6,13 @@ public:
             mp[nums[i]]++;
         }
         int n=nums.size();
+        int ans=0;
         for(auto e:mp){
             if(e.second>n/2){
-                return e.first;
+                 ans=e.first;
+                 break;
             }
         }
-        return -1;
+        return ans;
     }
 };*/
