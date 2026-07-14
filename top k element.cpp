@@ -1,24 +1,22 @@
-/*leetcode
-class Solution {
+/*class Solution {
 public:
-
     vector<int> topKFrequent(vector<int>& nums, int k) {
-        unordered_map<int,int> mp;
-        vector<int> arr;
-        for(int i=0; i<nums.size(); i++){
+        unordered_map<int,int>mp;
+        for(int i=0;i<nums.size();i++){
             mp[nums[i]]++;
         }
-        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
-        for(auto a : mp){
-            pq.push({a.second, a.first});
-            if(pq.size() > k){
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
+        for(auto e:mp){
+            pq.push({e.second,e.first});
+            if(pq.size()>k){
                 pq.pop();
             }
         }
+        vector<int>ans;
         while(!pq.empty()){
-            arr.push_back(pq.top().second);
+            ans.push_back(pq.top().second);
             pq.pop();
         }
-        return arr;
+        return ans;
     }
 };*/
