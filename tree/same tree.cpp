@@ -1,38 +1,33 @@
-/*leetcode+gfg
-/*
-class Node {
-public:
-    int data;
-    Node* left;
-    Node* right;
-
-    Node(int x) {
-        data = x;
-        left = nullptr;
-        right = nullptr;
-    }
-};
-*/
+/*/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 /*class Solution {
-  public:
-    bool isIdentical(Node* r1, Node* r2) {
-        // code here
-        queue<pair<Node*,Node*>>q;
-        q.push({r1,r2});
-        while(!q.empty()){
-            auto[n1,n2]=q.front();
-            q.pop();
-            if(!n1&&!n2){
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        queue<pair<TreeNode*,TreeNode*>>qu;
+        qu.push({p,q});
+        while(!qu.empty()){
+            auto[n1,n2]=qu.front();
+            qu.pop();
+            if(n1==NULL&&n2==NULL){
                 continue;
             }
-            if(!n1||!n2){
+            if(n1==NULL&&n2!=NULL||n1!=NULL&&n2==NULL){
                 return false;
             }
-            if(n1->data!=n2->data){
+            if(n1->val!=n2->val){
                 return false;
             }
-            q.push({n1->left,n2->left});
-            q.push({n1->right,n2->right});
+            qu.push({n1->left,n2->left});
+            qu.push({n1->right,n2->right});
         }
         return true;
     }
