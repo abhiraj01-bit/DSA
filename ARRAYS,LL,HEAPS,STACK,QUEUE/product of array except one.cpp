@@ -1,4 +1,4 @@
-/*class Solution {
+/*leetcodeclass Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
 
