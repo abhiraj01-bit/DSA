@@ -1,5 +1,4 @@
-/*leetcode
-/**
+/*/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
@@ -20,9 +19,8 @@ bool valid(TreeNode* root,long long min,long long max){
         return false;
     }
     return valid(root->left,min,root->val)&&valid(root->right,root->val,max);
-
 }
     bool isValidBST(TreeNode* root) {
-        return valid(root,LLONG_MIN,LLONG_MAX);
+       return valid(root,LLONG_MIN,LLONG_MAX);
     }
 };*/
