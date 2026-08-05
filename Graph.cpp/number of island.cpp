@@ -1,31 +1,38 @@
 /*class Solution {
-  public:
-  void dfs(int i,int j,vector<vector<char>>&grid,vector<vector<bool>>&vis,int n,int m){
-    if(i<0||i>=n||j<0||j>=m||vis[i][j]==true||grid[i][j]!='L'){
-        return;
+public:
+void dfs(int x,int y,vector<vector<char>>& grid,vector<vector<bool>>&vis){
+    vis[x][y]=true;
+    if(isvalid(x-1,y,grid,vis)){
+        dfs(x-1,y,grid,vis);
     }
-        vis[i][j]=true;
-        dfs(i-1,j,grid,vis,n,m);
-        dfs(i+1,j,grid,vis,n,m);
-        dfs(i,j+1,grid,vis,n,m);
-        dfs(i,j-1,grid,vis,n,m);
-        dfs(i-1,j+1,grid,vis,n,m);
-        dfs(i+1,j+1,grid,vis,n,m);
-        dfs(i+1,j-1,grid,vis,n,m);
-        dfs(i-1,j-1,grid,vis,n,m);
-   
+    if(isvalid(x+1,y,grid,vis)){
+        dfs(x+1,y,grid,vis);
+    }
+    if(isvalid(x,y+1,grid,vis)){
+        dfs(x,y+1,grid,vis);
+    }
+    if(isvalid(x,y-1,grid,vis)){
+        dfs(x,y-1,grid,vis);
+    }
 }
-    int countIslands(vector<vector<char>>& grid) {
-        // Code here
-         int n=grid.size();
+bool isvalid(int nx,int ny,vector<vector<char>>& grid,vector<vector<bool>>&vis){
+    int n=grid.size();
+    int m=grid[0].size();
+    if(nx<0||nx>=n||ny<0||ny>=m||grid[nx][ny]=='0'||vis[nx][ny]){
+        return false;
+    }
+    return true;
+}
+    int numIslands(vector<vector<char>>& grid) {
+        int n=grid.size();
         int m=grid[0].size();
-        vector<vector<bool>>vis(n,vector<bool>(m,false));
         int count=0;
+        vector<vector<bool>>vis(n,vector<bool>(m,false));
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-                if(grid[i][j]=='L'&&!vis[i][j]){
-                    dfs(i,j,grid,vis,n,m);
-                count++;
+                if(!vis[i][j]&&grid[i][j]=='1'){
+                    count++;
+                    dfs(i,j,grid,vis);
                 }
             }
         }
