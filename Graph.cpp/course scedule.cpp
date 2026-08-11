@@ -1,33 +1,35 @@
-/*leetcodeclass Solution {
+/*class Solution {
 public:
-bool dfs(int src,vector<vector<int>>&graph,vector<bool>&path,vector<bool>&vis){
+bool dfs(int src,vector<vector<int>>&adj,vector<bool>&vis,vector<bool>&rec){
     vis[src]=true;
-    path[src]=true;
-    for(int i:graph[src]){
+    rec[src]=true;
+    for(int i:adj[src]){
         if(!vis[i]){
-            if(dfs(i,graph,path,vis)){
+            if(dfs(i,adj,vis,rec)){
                 return true;
             }
         }
-        else if(path[i]){
+        else if(rec[i]){
             return true;
         }
     }
-    path[src]=false;
+    rec[src]=false;
     return false;
 }
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<vector<int>>graph(numCourses);
-        for(auto i:prerequisites){
+        vector<vector<int>>adj(numCourses);
+        for(auto &i:prerequisites){
             int u=i[0];
             int v=i[1];
-            graph[u].push_back(v);
+            adj[u].push_back(v);
         }
-        vector<bool>vis(numCourses,false);
-        vector<bool>path(numCourses,false);
+        vector<bool>vis(numCourses);
+        vector<bool>rec(numCourses);
         for(int i=0;i<numCourses;i++){
-            if(dfs(i,graph,path,vis)){
-                return false;
+            if(!vis[i]){
+                if(dfs(i,adj,vis,rec)){
+                    return false;
+                }
             }
         }
         return true;
