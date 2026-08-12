@@ -1,49 +1,35 @@
-/*
-class Solution {
-  public:
-  bool dfs(int src,vector<vector<int>>&adj,vector<bool>&vis,vector<bool>&path,stack<int>&s){
-      vis[src]=true;
-      path[src]=true;
-      for(int i:adj[src]){
-          if(!vis[i]){
-              if(dfs(i,adj,vis,path,s)){
-                  return true;
-              }
-          }
-          else if(path[i]){
-              return true;
-          }
-      }
-      path[src]=false;
-      s.push(src);
-      return false;
-  }
-  void topo(stack<int>&s,vector<int>ans){
-      while(!s.empty()){
-          ans.push_back(s.top());
-          s.pop();
-      }
-  }
-    vector<int> findOrder(int n, vector<vector<int>> &prerequisites) {
-        // code here
-        vector<vector<int>>adj(n);
-        for(auto i:prerequisites){
+/*class Solution {
+public:
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+        vector<vector<int>>adj(numCourses);
+        vector<int> ind(numCourses, 0);
+        vector<int>ans;
+        queue<int>q;
+        for(auto &i:prerequisites){
             int u=i[0];
             int v=i[1];
-            adj[u].push_back(v);
+            adj[v].push_back(u);
+            ind[u]++;
         }
-        stack<int>s;
-         vector<bool>vis(n,false);
-         vector<bool>path(n,false);
-         vector<int>ans;
-         for(int i=0;i<n;i++){
-             if(!vis[i]){
-                 if(dfs(i,adj,vis,path,s)){
-                     return {};
-                 }
-             }
-         }
-        topo(s,ans);
-         return ans;
+            for(int i=0;i<ind.size();i++){
+                if(ind[i]==0){
+                    q.push(i);
+                }
+            }
+            while(!q.empty()){
+                int u=q.front();
+                q.pop();
+                ans.push_back(u);
+                for(int n:adj[u]){
+                    ind[n]--;
+                    if(ind[n]==0){
+                        q.push(n);
+                    }
+                }
+            }
+        if(ans.size()!=numCourses){
+            return {};
+        }
+        return ans;
     }
 };*/
