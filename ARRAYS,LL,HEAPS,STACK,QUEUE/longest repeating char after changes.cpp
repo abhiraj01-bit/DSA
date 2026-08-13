@@ -1,0 +1,22 @@
+/*class Solution {
+public:
+    int characterReplacement(string s, int k) {
+        map<char,int> freq;
+        int i = 0, maxCount = 0, result = 0;
+        
+        for (int j = 0; j < s.size(); j++) {
+            freq[s[j]]++;
+            maxCount = max(maxCount, freq[s[j]]);
+            
+            while ((j - i + 1) - maxCount > k) {
+                freq[s[i]]--;
+                i++;
+            }
+            
+            result = max(result, j - i + 1);
+        }
+        
+        return result;
+    }
+};
+*/
