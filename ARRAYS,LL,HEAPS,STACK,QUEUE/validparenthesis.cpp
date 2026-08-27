@@ -1,7 +1,7 @@
-/* gfg 
+/*leetcode
 class Solution {
-  public:
-    bool isBalanced(string& s) {
+public:
+    bool isValid(string s) {
         stack<char> st;
         int n = s.size();
         for(int i=0; i<n; i++){
