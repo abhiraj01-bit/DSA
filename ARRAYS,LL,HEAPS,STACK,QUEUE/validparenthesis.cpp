@@ -1,4 +1,5 @@
 /*leetcode
+guilt trip pro max
 class Solution {
 public:
     bool isValid(string s) {
