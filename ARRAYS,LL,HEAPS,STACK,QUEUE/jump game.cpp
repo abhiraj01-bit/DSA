@@ -1,4 +1,5 @@
-/*class Solution {
+/*leetcode 
+class Solution {
 public:
     bool solve(int i, vector<int>& nums, int n,vector<int>&dp) {
 
