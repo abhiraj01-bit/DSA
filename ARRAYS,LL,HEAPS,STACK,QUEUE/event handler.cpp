@@ -45,4 +45,4 @@ unordered_map<int,int>mp;
  * EventManager* obj = new EventManager(events);
  * obj->updatePriority(eventId,newPriority);
  * int param_2 = obj->pollHighest();
- */*/
+ */
