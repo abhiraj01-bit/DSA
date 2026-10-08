@@ -1,4 +1,6 @@
-/*class EventManager {
+/*
+leetcode 2346. Event Manager
+class EventManager {
 public:
 struct comparator{
     bool operator()(const pair<int,int>&a,const pair<int,int>&b)const{
