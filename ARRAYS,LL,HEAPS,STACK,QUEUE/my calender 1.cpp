@@ -1,4 +1,4 @@
-/*leetcode
+/*
 class MyCalendar {
 public:
 set<pair<int,int>>s;
