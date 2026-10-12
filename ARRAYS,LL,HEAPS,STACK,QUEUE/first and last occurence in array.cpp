@@ -1,4 +1,6 @@
-/*class Solution {
+/*
+leetcode
+class Solution {
 public:
 void bsl(int s,int e,vector<int>&nums,int target,int &mini){
     if(s>e){
