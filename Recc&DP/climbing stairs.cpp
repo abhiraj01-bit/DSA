@@ -1,24 +1,18 @@
-/*
-class Solution {
+/*class Solution {
 public:
-int cs(int n,vector<int>&dp){
-     if(n==0){
-            return 0;
-        }
-        if(n==1){
-            return 1;
-        }
-        if(n==2){
-            return 2;
-        }
-        if(dp[n]!=-1){
-            return dp[n];
-        }
-       dp[n]= cs(n-1,dp)+cs(n-2,dp);
-       return dp[n];
+int solve(int n,int count,vector<int>&dp){
+    if(n<=1){
+        return 1;
+    }
+    if(dp[n]!=-1){
+        return dp[n];
+    }
+    count+=solve(n-1,count,dp)+solve(n-2,count,dp);
+    dp[n]=count;
+    return dp[n];
 }
     int climbStairs(int n) {
-       vector<int>dp(n+1,-1);
-       return cs(n,dp);
+        vector<int>dp(n+1,-1);
+        return solve(n,0,dp);
     }
 };*/
