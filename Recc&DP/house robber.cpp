@@ -1,20 +1,19 @@
 /*class Solution {
 public:
-int chori(vector<int>&nums,int index,vector<int>&dp){
-    if(index>=nums.size()){
+int solve(int i,vector<int>&nums,vector<int>&dp){
+    if(i>=nums.size()){
         return 0;
     }
-    if(dp[index]!=-1){
-        return dp[index];
+    if(dp[i]!=-1){
+        return dp[i];
     }
-    int ex=chori(nums,index+1,dp);
-    int chhose=nums[index]+chori(nums,index+2,dp);
-     dp[index]=max(ex,chhose);
-     return dp[index];
+    int inc=nums[i]+solve(i+2,nums,dp);
+    int exc=solve(i+1,nums,dp);
+    dp[i]=max(inc,exc);
+    return dp[i];
 }
     int rob(vector<int>& nums) {
-        int n=nums.size();
-        vector<int>dp(n+1,-1);
-       return chori(nums,0,dp);
+        vector<int>dp(nums.size()+1,-1);
+        return solve(0,nums,dp);
     }
 };*/
