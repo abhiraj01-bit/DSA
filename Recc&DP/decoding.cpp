@@ -1,26 +1,26 @@
 /*class Solution {
 public:
-int ways(string&s,int n,int index,vector<int>&dp){
-    if(index==n){
+int solve(int i,string &s,vector<int>&dp){
+    if(i==s.size()){
         return 1;
     }
-    if(s[index]=='0'){
+    if(s[i]=='0'){
         return 0;
     }
-    if(dp[index]!=-1){
-        return dp[index];
+    if(dp[i]!=-1){
+        return dp[i];
     }
-    int first=ways(s,n,index+1,dp);
-    int second=0;
-    if(index+1<n&&(s[index]=='1'||s[index]=='2'&&s[index+1]<='6')){
-         second=ways(s,n,index+2,dp);
+    int one=solve(i+1,s,dp);
+    int two=0;
+    if(i+1<s.size()&&(s[i]=='1'||(s[i]=='2'&&s[i+1]<='6'))){
+        two=solve(i+2,s,dp);
     }
-    dp[index]= first+second;
-    return dp[index];
+    dp[i]=one+two;
+    return dp[i];
 }
     int numDecodings(string s) {
         int n=s.size();
         vector<int>dp(n+1,-1);
-        return ways(s,n,0,dp);
+        return solve(0,s,dp);
     }
 };*/
