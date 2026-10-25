@@ -1,28 +1,27 @@
-/*leetcode
-class Solution {
+/*class Solution {
 public:
-int solve(int n,int m,vector<vector<int>>& obstacleGrid,vector<vector<int>>&dp){
-   if(n<0||m<0){
+int solve(int i,int j,int n,int m,vector<vector<int>>&grid,vector<vector<int>>&dp){
+    if(i>=n||j>=m){
         return 0;
     }
-    if(obstacleGrid[n][m]==1){
+    if(grid[i][j]==1){
         return 0;
     }
-    if(n==0&&m==0){
+    if(i==n-1&&j==m-1){
         return 1;
     }
-    if(dp[n][m]!=-1){
-        return dp[n][m];
+    if(dp[i][j]!=-1){
+        return dp[i][j];
     }
-    int up=solve(n,m-1,obstacleGrid,dp);
-    int left=solve(n-1,m,obstacleGrid,dp);
-   dp[n][m]=up+left;
-   return dp[n][m];
+    int down=solve(i+1,j,n,m,grid,dp);
+    int right=solve(i,j+1,n,m,grid,dp);
+    dp[i][j]=down+right;
+    return dp[i][j];
 }
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
         int n=obstacleGrid.size();
         int m=obstacleGrid[0].size();
-        vector<vector<int>>dp(n+1,vector<int>(m+1,-1));
-        return solve(n-1,m-1,obstacleGrid,dp);
+        vector<vector<int>>dp(n,vector<int>(m,-1));
+        return solve(0,0,n,m,obstacleGrid,dp);
     }
 };*/
