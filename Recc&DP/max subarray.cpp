@@ -1,4 +1,6 @@
-/*class Solution {
+/*
+leetcode
+class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
         int maxi=INT_MIN;
