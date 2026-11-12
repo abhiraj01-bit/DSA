@@ -1,4 +1,6 @@
-/*class Solution {
+/*
+leetcode
+class Solution {
 public:
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
         int n=rooms.size();
@@ -9,15 +11,15 @@ public:
         while(!q.empty()){
             int u=q.front();
             q.pop();
-            for(int n:rooms[u]){
-                if(!vis[n]){
-                    vis[n]=true;
-                    q.push(n);
+            for(int e:rooms[u]){
+                if(!vis[e]){
+                    vis[e]=true;
+                    q.push(e);
                 }
             }
         }
         for(int i=0;i<n;i++){
-            if(!vis[i]){
+            if(vis[i]==false){
                 return false;
             }
         }
