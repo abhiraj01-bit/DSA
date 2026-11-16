@@ -1,5 +1,4 @@
-/*
-/**
+/*/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
@@ -12,21 +11,20 @@
  */
 /*class Solution {
 public:
-vector<int>ans;
-void inorder(TreeNode* root){
+void sarr(TreeNode* root,vector<int>&s){
     if(root==NULL){
-        return ;
+        return;
     }
-    inorder(root->left);
-    ans.push_back(root->val);
-    inorder(root->right);
+    sarr(root->left,s);
+    s.push_back(root->val);
+    sarr(root->right,s);
 }
     int kthSmallest(TreeNode* root, int k) {
         if(root==NULL){
             return 0;
         }
-        inorder(root);
-        return ans[k-1];
+        vector<int>s;
+        sarr(root,s);
+        return s[k-1];
     }
-};
-*/
+};*/
