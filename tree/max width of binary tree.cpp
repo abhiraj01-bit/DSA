@@ -11,27 +11,21 @@
  */
 /*class Solution {
 public:
-    int widthOfBinaryTree(TreeNode* root) {
-        queue<pair<TreeNode*,int>>q;
-        q.push({root,0});
-        long long ans=0;
-        while(!q.empty()){
-            int n=q.size();
-            long long s=q.front().second;
-            long long e=q.back().second;
-            ans=max(ans,e-s+1);
-            for(int i=0;i<n;i++){
-                TreeNode* p=q.front().first;
-                long long x=q.front().second;
-                q.pop();
-                if(p->left){
-                    q.push({p->left,2*x+1});
-                }
-                if(p->right){
-                    q.push({p->right,2*x+2});
-                }
-            }
+int wide(TreeNode* root){
+    if(root==NULL){
+        return 0;
+    }
+    int left=wide(root->left);
+    int right=wide(root->right);
+    return max(left,right)+1;
+}
+    int diameterOfBinaryTree(TreeNode* root) {
+        if(root==NULL){
+            return 0;
         }
-        return ans;
+        int left=diameterOfBinaryTree(root->left);
+        int right=diameterOfBinaryTree(root->right);
+        int curr=wide(root->left)+wide(root->right);
+        return max(curr,max(left,right));
     }
 };*/
